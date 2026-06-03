@@ -92,6 +92,20 @@ class PowerConfiguration1CRCluster(DoublingPowerConfigurationCluster):
     }
 
 
+class PowerConfiguration1AAACluster(DoublingPowerConfigurationCluster):
+    """Updating Power attributes 1 AAA."""
+
+    BATTERY_SIZES = 0x0031
+    BATTERY_QUANTITY = 0x0033
+    BATTERY_RATED_VOLTAGE = 0x0034
+
+    _CONSTANT_ATTRIBUTES = {
+        BATTERY_SIZES: 4,
+        BATTERY_QUANTITY: 1,
+        BATTERY_RATED_VOLTAGE: 15,
+    }
+
+
 class PowerConfiguration1CRXCluster(DoublingPowerConfigurationCluster):
     """Updating Power attributes 1 CR2032 and Zero voltage."""
 
