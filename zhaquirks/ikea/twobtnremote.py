@@ -179,4 +179,29 @@ class IkeaTradfriRemote2BtnZLL(CustomDevice):
         }
     }
 
-    device_automation_triggers = IkeaTradfriRemote2Btn.device_automation_triggers.copy()
+    device_automation_triggers = {
+        (SHORT_PRESS, TURN_ON): {COMMAND: COMMAND_ON, CLUSTER_ID: 6, ENDPOINT_ID: 1},
+        (LONG_PRESS, DIM_UP): {
+            COMMAND: COMMAND_MOVE_ON_OFF,
+            CLUSTER_ID: 8,
+            ENDPOINT_ID: 1,
+            ARGS: [0, 83],
+        },
+        (LONG_RELEASE, DIM_UP): {
+            COMMAND: COMMAND_STOP,
+            CLUSTER_ID: 8,
+            ENDPOINT_ID: 1,
+        },
+        (SHORT_PRESS, TURN_OFF): {COMMAND: COMMAND_OFF, CLUSTER_ID: 6, ENDPOINT_ID: 1},
+        (LONG_PRESS, DIM_DOWN): {
+            COMMAND: COMMAND_MOVE,
+            CLUSTER_ID: 8,
+            ENDPOINT_ID: 1,
+            ARGS: [1, 83],
+        },
+        (LONG_RELEASE, DIM_DOWN): {
+            COMMAND: COMMAND_STOP,
+            CLUSTER_ID: 8,
+            ENDPOINT_ID: 1,
+        },
+    }
